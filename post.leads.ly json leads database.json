@@ -1,0 +1,78 @@
+db.runCommand({
+  collMod: "leads",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "first", "last", "email", "street", "city", "state", "zip"
+      ],
+      properties: {
+        first: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        last: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        email: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        street: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        city: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        state: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        },
+        zip: {
+          bsonType: "int",
+          description: "must be an integer and is required"
+        },
+        phone: {
+          bsonType: "int",
+          description: "must be an integer"
+        },
+        balance: {
+          bsonType: "double",
+          description: "must be a number"
+        },
+        value: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+        optin: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+        ip: {
+          bsonType: "string",
+          description: "must be a string and be formatted as an IP address"
+        },
+        lender: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+        property_type: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+        credit: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+        property_use: {
+          bsonType: "string",
+          description: "must be a string"
+        },
+      }
+    }
+  },
+  validationAction: "error"
+});
